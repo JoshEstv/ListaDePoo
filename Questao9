@@ -1,0 +1,23 @@
+class Bloco {
+    int valor;
+    Bloco anterior, proximo;
+    
+    Bloco(int valor) {
+        this.valor = valor;
+    }
+}
+
+class ListaDupla {
+    private Bloco primeiro, ultimo;
+    
+    public void addElemento(int valor) {
+        Bloco novo = new Bloco(valor);
+        if (ultimo == null) {
+            primeiro = ultimo = novo;
+        } else {
+            ultimo.proximo = novo;
+            novo.anterior = ultimo;
+            ultimo = novo;
+        }
+    }
+}
