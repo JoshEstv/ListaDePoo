@@ -1,0 +1,44 @@
+class ListaRecursiva {
+    private Bloco primeiro;
+
+    private class Bloco {
+        int valor;
+        Bloco proximo;
+
+        Bloco(int valor) {
+            this.valor = valor;
+            this.proximo = null;
+        }
+    }
+
+    public void addElemento(int valor) {
+        primeiro = addRecursivo(primeiro, valor);
+    }
+
+    private Bloco addRecursivo(Bloco bloco, int valor) {
+        if (bloco == null) {
+            return new Bloco(valor);
+        }
+        bloco.proximo = addRecursivo(bloco.proximo, valor);
+        return bloco;
+    }
+
+    public int tamanho() {
+        return tamanhoRecursivo(primeiro);
+    }
+
+    private int tamanhoRecursivo(Bloco bloco) {
+        if (bloco == null) return 0;
+        return 1 + tamanhoRecursivo(bloco.proximo);
+    }
+
+    public boolean localizar(int valor) {
+        return localizarRecursivo(primeiro, valor);
+    }
+
+    private boolean localizarRecursivo(Bloco bloco, int valor) {
+        if (bloco == null) return false;
+        if (bloco.valor == valor) return true;
+        return localizarRecursivo(bloco.proximo, valor);
+    }
+}
