@@ -1,0 +1,22 @@
+import java.util.Stack;
+
+class FilaPilha {
+    private Stack<Integer> pilha1 = new Stack<>();
+    private Stack<Integer> pilha2 = new Stack<>();
+    
+    public void push(int elemento) {
+        pilha1.push(elemento);
+    }
+    
+    public int pop() {
+        if (pilha2.isEmpty()) {
+            while (!pilha1.isEmpty()) {
+                pilha2.push(pilha1.pop());
+            }
+        }
+        if (!pilha2.isEmpty()) {
+            return pilha2.pop();
+        }
+        throw new RuntimeException("A fila está vazia");
+    }
+}
