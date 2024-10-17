@@ -1,0 +1,17 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
+class Fila {
+    private Queue<Integer> fila = new LinkedList<>();
+    
+    public void push(int elemento) {
+        fila.add(elemento);
+    }
+    
+    public int pop() {
+        if (!fila.isEmpty()) {
+            return fila.poll();
+        }
+        throw new RuntimeException("A fila está vazia");
+    }
+}
