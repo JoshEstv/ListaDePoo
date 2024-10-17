@@ -1,0 +1,39 @@
+import java.util.Stack;
+
+class CalculadoraPolonesa {
+    public static double resolverExpressao(String expressao) {
+        Stack<Double> pilha = new Stack<>();
+        String[] tokens = expressao.split(" ");
+
+        for (String token : tokens) {
+            if (isOperador(token)) {
+                double b = pilha.pop();
+                double a = pilha.pop();
+                pilha.push(executarOperacao(a, b, token));
+            } else {
+                pilha.push(Double.parseDouble(token));
+            }
+        }
+
+        return pilha.pop();
+    }
+
+    private static boolean isOperador(String token) {
+        return token.equals("+") || token.equals("-") || token.equals("*") || token.equals("/");
+    }
+
+    private static double executarOperacao(double a, double b, String operador) {
+        switch (operador) {
+            case "+": return a + b;
+            case "-": return a - b;
+            case "*": return a * b;
+            case "/": return a / b;
+            default: throw new IllegalArgumentException("Operador inválido");
+        }
+    }
+
+    public static void main(String[] args) {
+        String expressao = "1 3 + 3 4 + * 7 + 35 /";
+        System.out.println("Resultado: " + resolverExpressao(expressao));
+    }
+}
