@@ -1,0 +1,11 @@
+class Lista {
+    private ArrayList<Integer> lista = new ArrayList<>();
+    
+    public void addElemento(int valor, int pos) {
+        if (pos >= lista.size()) {
+            lista.add(valor); 
+        } else {
+            lista.add(pos, valor); 
+        }
+    }
+}
