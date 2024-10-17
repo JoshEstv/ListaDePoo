@@ -1,0 +1,10 @@
+class Lista {
+    private ArrayList<Integer> lista = new ArrayList<>();
+    
+    public Lista concatena(Lista l2) {
+        Lista novaLista = new Lista();
+        novaLista.lista.addAll(this.lista);
+        novaLista.lista.addAll(l2.lista); 
+        return novaLista;
+    }
+}
