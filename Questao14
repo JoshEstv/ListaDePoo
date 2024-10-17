@@ -1,0 +1,19 @@
+import java.util.HashSet;
+
+class Lista {
+    private ArrayList<Integer> lista = new ArrayList<>();
+    
+    public void removeDuplicados() {
+        HashSet<Integer> elementos = new HashSet<>();
+        ArrayList<Integer> novaLista = new ArrayList<>();
+        
+        for (int valor : lista) {
+            if (!elementos.contains(valor)) {
+                novaLista.add(valor);
+                elementos.add(valor);
+            }
+        }
+        
+        lista = novaLista; 
+    }
+}
