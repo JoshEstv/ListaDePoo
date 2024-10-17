@@ -1,0 +1,21 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
+class Pilha {
+    private Stack<Integer> pilha = new Stack<>();
+    
+    public Queue<Integer> paraFila() {
+        Queue<Integer> fila = new LinkedList<>();
+        Stack<Integer> aux = new Stack<>();
+        
+        while (!pilha.isEmpty()) {
+            aux.push(pilha.pop());
+        }
+        
+        while (!aux.isEmpty()) {
+            fila.add(aux.pop());
+        }
+        
+        return fila;
+    }
+}
