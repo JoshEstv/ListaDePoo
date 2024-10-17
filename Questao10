@@ -1,0 +1,24 @@
+class ListaArray {
+    private int[] array;
+    private int tamanho;
+
+    public ListaArray(int capacidade) {
+        array = new int[capacidade];
+        tamanho = 0;
+    }
+
+    public void addElemento(int valor) {
+        if (tamanho == array.length) {
+            System.out.println("Array está cheio.");
+            return;
+        }
+        array[tamanho++] = valor;
+    }
+
+    public int getElemento(int index) {
+        if (index < 0 || index >= tamanho) {
+            throw new IndexOutOfBoundsException("Índice fora dos limites.");
+        }
+        return array[index];
+    }
+}
