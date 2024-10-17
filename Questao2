@@ -1,0 +1,23 @@
+import java.util.Stack;
+
+class Pilha {
+    private Stack<Integer> pilha = new Stack<>();
+    
+    public void push(int elemento) {
+        pilha.push(elemento);
+    }
+    
+    public int pop() {
+        if (!pilha.isEmpty()) {
+            return pilha.pop();
+        }
+        throw new RuntimeException("A pilha está vazia");
+    }
+    
+    public int topo() {
+        if (!pilha.isEmpty()) {
+            return pilha.peek(); 
+        }
+        throw new RuntimeException("A pilha está vazia");
+    }
+}
