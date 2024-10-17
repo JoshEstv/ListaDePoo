@@ -1,0 +1,13 @@
+import java.util.Stack;
+
+class Fila {
+    private Queue<Integer> fila = new LinkedList<>();
+    
+    public Stack<Integer> paraPilha() {
+        Stack<Integer> pilha = new Stack<>();
+        for (int elemento : fila) {
+            pilha.push(elemento);
+        }
+        return pilha;
+    }
+}
