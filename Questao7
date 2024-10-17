@@ -1,0 +1,13 @@
+import java.util.ArrayList;
+import java.util.Collections;
+
+class Lista {
+    private ArrayList<Integer> lista = new ArrayList<>();
+    
+    public Lista inverte() {
+        Lista novaLista = new Lista();
+        novaLista.lista = new ArrayList<>(lista);
+        Collections.reverse(novaLista.lista);
+        return novaLista;
+    }
+}
